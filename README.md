@@ -77,7 +77,7 @@ Each model was evaluated using the following six metrics:
 | Decision Tree            |   0.8615 | 0.8787|    0.8683 | 0.8615 | 0.8630 | 0.7464 |
 | KNN                      |   0.7154 | 0.7091|    0.7403 | 0.7154 | 0.6861 | 0.3538 |
 | Naive Bayes              |   0.6231 | 0.8853|    0.7650 | 0.6231 | 0.6260 | 0.4921 |
-| Random Forest (Ensemble) |   0.8923 | 0.9695|    0.8939 | 0.8923 | 0.8827 | 0.7884 |
+| Random Forest (Ensemble) |   0.8846 | 0.9694|    0.8865 | 0.8846 | 0.8752 | 0.7731 |
 
 
 Overall Winner: **Random Forest (Ensemble)**
@@ -88,7 +88,7 @@ Logistic Regression	- Strong overall performance with 86.92% accuracy and high A
 Decision Tree -	Provides good classification performance with 86.15% accuracy, but performs slightly below Logistic Regression and Random Forest.
 KNN	- Shows moderate performance with 71.54% accuracy and lower MCC/F1 scores, indicating weaker overall classification ability.
 Naive Bayes -	Has the lowest accuracy (62.31%) and relatively low F1 and MCC, making it the weakest model overall despite a reasonably high AUC.
-Random Forest (Ensemble) -	Best overall model with the highest Accuracy (89.23%), AUC (0.9695), Precision (0.8939), and MCC (0.7884).
+Random Forest (Ensemble) -	Best overall model with the highest Accuracy (88.46%), AUC (0.9694), Precision (0.8846), and MCC (0.7731).
 
 
 Overall Winner
