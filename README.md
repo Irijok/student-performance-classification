@@ -24,7 +24,7 @@ The dataset used for this project is the **Student Performance dataset** (`por2.
 | Number of Columns   | 34                  |
 | Target              | Student Performance |
 | Dataset Type        | Classification      |
-| File                | `por2.csv`          |
+| File                | `por2_1.csv`          |
 
 ### Important Features
 
@@ -90,9 +90,9 @@ KNN	- Shows moderate performance with 71.54% accuracy and lower MCC/F1 scores, i
 Naive Bayes -	Has the lowest accuracy (62.31%) and relatively low F1 and MCC, making it the weakest model overall despite a reasonably high AUC.
 Random Forest (Ensemble) -	Best overall model with the highest Accuracy (89.23%), AUC (0.9695), Precision (0.8939), and MCC (0.7884).
 
-====================================================================================================
+
 Overall Winner
-====================================================================================================
+
 
 **Random Forest (Ensemble)** is the overall best-performing model for the Student Performance Classification dataset. It achieves the highest Accuracy, AUC, Precision, and MCC while maintaining a strong Recall and F1 Score. Therefore, Random Forest can be selected as the preferred model for this application.
 
@@ -209,6 +209,11 @@ streamlit run streamlit_app.py
 The application will open in the browser.
 
 ---
+
+## Basics
+
+To generate pkl files, run the train_models.py in train folder.
+Then after making sure that all the files exist within the same and accessible path, run streamlit_app.py. If needed, change the DATA_PATH to the particular path in which the csv file is downloaded within the system.
 
 ## Conclusion
 
