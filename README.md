@@ -21,7 +21,7 @@ The dataset used for this project is the **Student Performance dataset** (`por2.
 | Property            | Details             |
 | ------------------- | ------------------- |
 | Number of Instances | 649                 |
-| Number of Columns   | 34                  |
+| Number of Columns   | 34 or 35            |
 | Target              | Student Performance |
 | Dataset Type        | Classification      |
 | File                | `por2_1.csv`          |
@@ -76,7 +76,7 @@ Each model was evaluated using the following six metrics:
 | Logistic Regression      |   0.8692 | 0.9471|    0.8696 | 0.8692 | 0.8691 | 0.7497 |
 | Decision Tree            |   0.8615 | 0.8787|    0.8683 | 0.8615 | 0.8630 | 0.7464 |
 | KNN                      |   0.7154 | 0.7091|    0.7403 | 0.7154 | 0.6861 | 0.3538 |
-| Naive Bayes              |   0.6231 |	0.8853|    0.7650 | 0.6231 | 0.6260 | 0.4921 |
+| Naive Bayes              |   0.6231 | 0.8853|    0.7650 | 0.6231 | 0.6260 | 0.4921 |
 | Random Forest (Ensemble) |   0.8923 | 0.9695|    0.8939 | 0.8923 | 0.8827 | 0.7884 |
 
 
@@ -153,10 +153,7 @@ Student Performance Prediction
 * **Joblib**
 * **Streamlit**
 
-
-
-## Repository Structure
-
+Repository Structure
 
 student-performance-classification/
 │
@@ -173,9 +170,14 @@ student-performance-classification/
 │   ├── random_forest.pkl
 │   ├── scaler.pkl
 │   ├── feature_columns.pkl
-│   ├── metrics.pkl
+│   └── metrics.pkl
+│
 └── pages/
-    └── 1_Prediction_Results.py
+|    └── 1_Prediction_Results.py
+── train/
+|    └── train_models.py
+├── por2_1.csv
+├── por2.csv
 ```
 
 ---
