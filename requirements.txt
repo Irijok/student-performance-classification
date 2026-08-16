@@ -6,7 +6,4 @@ joblib>=1.3.0
 matplotlib>=3.7.0
 
 
-Download the csv file. First run train_models.py available within train folder after changing DATA_PATH to the current path in which the csv file is placed. 
-Once all the models are autodownloaded and after placing all the files in allowed/same path, 
-download both 1_Prediction_Results.py within pages folder and streamlit_app.py.
-Maintain the downloaded folder structure properly and run streamlit_app using streamlit run streamlit_app.py command.
+
