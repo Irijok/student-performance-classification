@@ -152,9 +152,9 @@ Student Performance Prediction
 * **Scikit-learn**
 * **Joblib**
 * **Streamlit**
-
-Repository Structure
-
+---
+## Repository Structure
+```
 student-performance-classification/
 │
 ├── streamlit_app.py
