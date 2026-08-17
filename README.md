@@ -14,7 +14,7 @@ An interactive **Streamlit dashboard** has also been developed to allow users to
 
 ## b. Dataset Description
 
-The dataset used for this project is the **Student Performance dataset** (`por2.csv`), containing information related to students' academic, demographic, family, social, and lifestyle characteristics.
+The dataset used for this project is the **Student Performance dataset** (`por2_1.csv`) (can also be por2.csv), containing information related to students' academic, demographic, family, social, and lifestyle characteristics.
 
 ### Dataset Statistics
 
