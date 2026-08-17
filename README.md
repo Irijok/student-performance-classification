@@ -160,7 +160,7 @@ student-performance-classification/
 ├── streamlit_app.py
 ├── requirements.txt
 ├── README.md
-├── test_data.csv
+
 │
 ├── model/
 │   ├── logistic_regression.pkl
