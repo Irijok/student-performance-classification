@@ -215,7 +215,7 @@ The application will open in the browser.
 ## Basics
 
 To generate pkl files, run the train_models.py in train folder.
-Then after making sure that all the files exist within the same and accessible path, run streamlit_app.py. If needed, change the DATA_PATH to the particular path in which the csv file is downloaded within the system.
+Then after making sure that all the files (including csv file) exist within the same and accessible path, run streamlit_app.py.
 
 ## Conclusion
 
