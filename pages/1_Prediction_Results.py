@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import joblib
 # ==========================================
 # PAGE CONFIGURATION
 # ==========================================
@@ -180,7 +180,112 @@ else:
     st.warning(
         "Evaluation metrics not found. Please generate predictions again."
     )
-
+# ==========================================
+# CONFUSION MATRIX & CLASSIFICATION REPORT
+#  loaded here from metrics.pkl via st.session_state["metrics"])
+# ==========================================
+ 
+st.markdown("---")
+ 
+st.markdown(
+    f'<div class="section-title">{TABLE_ICON} Confusion Matrix & Classification Report</div>',
+    unsafe_allow_html=True
+)
+ 
+if (
+    "metrics" in st.session_state
+    and st.session_state["metrics"] is not None
+    and "ConfusionMatrix" in st.session_state["metrics"]
+):
+ 
+    metrics = st.session_state["metrics"]
+    cm = metrics["ConfusionMatrix"]
+    report_dict = metrics["ClassificationReport"]
+ 
+    # Load the saved class order so rows/columns are labeled correctly
+    try:
+        classes = joblib.load("model/classes.pkl")
+    except Exception:
+        # Fallback: derive labels from the report dict itself
+        classes = [k for k in report_dict.keys()
+                   if k not in ("accuracy", "macro avg", "weighted avg")]
+ 
+    cm_col, report_col = st.columns(2)
+ 
+    # ------------------------------------------
+    # CONFUSION MATRIX (as a heatmap)
+    # ------------------------------------------
+    with cm_col:
+ 
+        st.subheader(f"{CHART_ICON} Confusion Matrix")
+ 
+        fig_cm, ax_cm = plt.subplots(figsize=(5, 4))
+ 
+        im = ax_cm.imshow(cm, cmap="Blues")
+ 
+        ax_cm.set_xticks(range(len(classes)))
+        ax_cm.set_yticks(range(len(classes)))
+        ax_cm.set_xticklabels(classes, rotation=45, ha="right")
+        ax_cm.set_yticklabels(classes)
+ 
+        ax_cm.set_xlabel("Predicted Label")
+        ax_cm.set_ylabel("True Label")
+        ax_cm.set_title(f"Confusion Matrix - {model_name}")
+ 
+        # Annotate each cell with its count
+        thresh = cm.max() / 2.0 if cm.max() > 0 else 0.5
+        for i in range(cm.shape[0]):
+            for j in range(cm.shape[1]):
+                ax_cm.text(
+                    j, i, int(cm[i, j]),
+                    ha="center", va="center",
+                    color="white" if cm[i, j] > thresh else "black",
+                    fontweight="bold"
+                )
+ 
+        fig_cm.colorbar(im, ax=ax_cm, fraction=0.046, pad=0.04)
+        fig_cm.tight_layout()
+ 
+        st.pyplot(fig_cm)
+ 
+    # ------------------------------------------
+    # CLASSIFICATION REPORT (as a table)
+    # ------------------------------------------
+    with report_col:
+ 
+        st.subheader(f"{TABLE_ICON} Classification Report")
+ 
+        # Convert the sklearn report dict into a clean DataFrame,
+        # dropping the scalar "accuracy" key which doesn't fit the table shape.
+        report_df = pd.DataFrame(report_dict).transpose()
+        report_df = report_df.drop(index="accuracy", errors="ignore")
+ 
+        report_df = report_df.rename(
+            columns={
+                "precision": "Precision",
+                "recall": "Recall",
+                "f1-score": "F1 Score",
+                "support": "Support",
+            }
+        )
+ 
+        report_df[["Precision", "Recall", "F1 Score"]] = report_df[
+            ["Precision", "Recall", "F1 Score"]
+        ].round(3)
+ 
+        st.dataframe(
+            report_df,
+            use_container_width=True,
+            height=350
+        )
+ 
+else:
+ 
+    st.warning(
+        "Confusion matrix / classification report not found. "
+        "Re-run train_models.py to regenerate model/metrics.pkl with this data."
+    )
+ 
 # ==========================================
 # SUMMARY CARDS
 # ==========================================
@@ -508,6 +613,8 @@ else:
     )
 
 st.markdown("---")
+
+
 
 
 
