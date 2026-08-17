@@ -8,7 +8,7 @@ Student academic performance can be influenced by several factors such as study 
 
 The objective of this project is to develop a **Student Performance Classification application** using multiple machine learning classification algorithms. The application predicts student performance categories and provides a detailed comparison of the implemented models using standard classification evaluation metrics.
 
-An interactive **Streamlit dashboard** has also been developed to allow users to upload student data, select a classification model, generate predictions, and view the corresponding performance results and evaluation metrics.
+An interactive **Streamlit dashboard** has also been developed to allow users to upload student data, select a classification model, generate predictions, confusion matrix and view the corresponding performance results and evaluation metrics.
 
 ---
 
