@@ -21,10 +21,10 @@ The dataset used for this project is the **Student Performance dataset** (`por2.
 | Property            | Details             |
 | ------------------- | ------------------- |
 | Number of Instances | 649                 |
-| Number of Columns   | 34 or 35            |
+| Number of Columns   | 35 / 34           |
 | Target              | Student Performance |
 | Dataset Type        | Classification      |
-| File                | `por2_1.csv`          |
+| File                | `por2_1.csv` / `por2.csv'     |
 
 ### Important Features
 
